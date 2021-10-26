@@ -1,0 +1,20 @@
+    <form class="d-flex container mt-4" style="width:400px">
+      <input class="form-control me-2" type="text" (input)='headlerInput($event)' placeholder="Busca un empleado">
+      <button class="btn btn-outline-primary" (click)="button()" type="button">Buscar</button>
+    </form>
+<table class="container table">
+  <thead>
+    <tr >
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Edad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let empleado of empleados">
+      <th scope="row">{{empleado.id}}</th>
+      <td>{{empleado.nombre}}</td>
+      <td>{{empleado.edad}}</td>
+    </tr>
+  </tbody>
+</table>
