@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-lista-de-empleados',
   templateUrl: './lista-de-empleados.component.html',
   styleUrls: ['./lista-de-empleados.component.css']
 })
-export class ListaDeEmpleadosComponent implements OnInit {
+export class ListaDeEmpleadosComponent {
   empleados: Array<{ id: number, nombre: string, edad: number }> = [
     { id: 1, nombre: 'Gianf', edad: 21 },
     { id: 2, nombre: 'Agustin', edad: 20},
@@ -19,19 +19,14 @@ export class ListaDeEmpleadosComponent implements OnInit {
     { id: 10, nombre: 'Leo', edad: 28},
   ];
   
+  buscarEmple: string ='';
   filterUser : Array<{id: number; nombre : string; edad:number}> =
     this.empleados;
-    buscarEmple: string ='';
     headlerInput(e : any){
       this.buscarEmple = e.target.value;
     }
   button(){
-    this.filterUser = this.empleados.filter(empleado => empleado.nombre === this.buscarEmple);
-  }
-
-  constructor() { }
-
-  ngOnInit(): void {
+    this.filterUser = this.empleados.filter((empleado) => empleado.nombre === this.buscarEmple);
   }
 
 }
